@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fairify</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="frame">
+    <div class="window">
+      <div class="window-titlebar">
+        <span class="window-dots">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="window-title">Fairify</span>
+      </div>
+
+      <div class="window-inner">
+        <header class="app-header">
+          <h1>Fairify</h1>
+          <p>Track yours. Split ours.</p>
+        </header>
+
+        <nav class="tabs">
+          <button class="tab active" data-tab="wallet">My Wallet</button>
+          <button class="tab" data-tab="groups">Groups</button>
+        </nav>
+
+        <main class="app-main">
+          <!-- MY WALLET TAB -->
+          <div id="tab-wallet">
+            <section class="card">
+              <h2>
+                <img src="assets/icon-wallet.png" class="icon-inline" alt="" />
+                My Wallet
+              </h2>
+
+              <!-- month label (arrows optional; if removed, keep just the span) -->
+              <div class="wallet-month">
+                <button type="button" class="month-arrow" id="month-prev">◀</button>
+                <span id="wallet-month-label"></span>
+                <button type="button" class="month-arrow" id="month-next">▶</button>
+              </div>
+
+              <div class="wallet-summary">
+                <span>Total spent</span>
+                <span id="total-amount">₹0</span>
+              </div>
+
+              <form id="expense-form">
+                <input type="number" id="amount" placeholder="Amount" required />
+                <select id="category">
+                  <option value="Food">Food</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  type="text"
+                  id="note"
+                  placeholder="Note (e.g. Coffee)"
+                  required
+                />
+                <button type="submit">Add Expense</button>
+              </form>
+
+              <ul id="expense-list"></ul>
+
+              <button type="button" id="clear-history">Clear history</button>
+
+              <!-- category cards -->
+              <div class="category-summary" id="category-summary"></div>
+
+              <!-- overview: stats + pie chart -->
+              <div class="wallet-overview">
+                <div class="overview-stats">
+                  <div class="overview-item">
+                    <div class="overview-label">Entries</div>
+                    <div class="overview-value" id="stat-count">0</div>
+                  </div>
+                  <div class="overview-item">
+                    <div class="overview-label">Average</div>
+                    <div class="overview-value" id="stat-average">₹0</div>
+                  </div>
+                </div>
+                <div class="overview-chart">
+                  <svg id="category-pie" viewBox="0 0 100 100"></svg>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- GROUPS TAB -->
+          <div id="tab-groups" style="display: none;">
+            <section class="card">
+              <h2>
+                <img src="assets/icon-groups.png" class="icon-inline" alt="" />
+                Groups
+              </h2>
+              <p class="groups-help">
+                Create a group to split shared expenses.
+              </p>
+
+              <form id="group-form">
+                <input
+                  type="text"
+                  id="group-name"
+                  placeholder="Group name (e.g. Goa trip)"
+                  required
+                />
+                <button type="submit">Create group</button>
+              </form>
+
+              <ul id="group-list"></ul>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

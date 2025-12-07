@@ -1,0 +1,449 @@
+:root {
+  /* base */
+  --bg: #2f4f62;        /* outer desktop background */
+  --surface: #f4e4d7;
+  --surface-alt: #f0d2b8;
+
+  /* accents */
+  --primary: #d98a6b;
+  --primary-dark: #b46c52;
+  --accent-green: #92a66b;
+  --accent-green-dark: #72854f;
+
+  /* text */
+  --text: #5a4638;
+  --muted: #b9a292;
+
+  /* status */
+  --positive: #8ba86f;
+  --negative: #c86464;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* outer background */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* wooden-style frame */
+
+.frame {
+  padding: 12px;
+  background: #8c5a33;
+  border: 4px solid #5e361a;
+  box-shadow: 0 0 0 4px #3a2111, 0 8px 0 #24140b;
+}
+
+/* inner retro window */
+
+.window {
+  background: #d9c5a4;
+  border: 3px solid #4b3a2b;
+  min-width: 380px;
+  max-width: 420px;
+}
+
+.window-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background: #c2aa84;
+  border-bottom: 3px solid #4b3a2b;
+}
+
+.window-dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+
+.window-dots span:nth-child(1) { background: #df6b64; }
+.window-dots span:nth-child(2) { background: #e0b15c; }
+.window-dots span:nth-child(3) { background: #6daa5a; }
+
+.window-title {
+  font-size: 12px;
+  color: #4b3a2b;
+}
+
+.window-inner {
+  padding: 10px 12px 12px;
+  background: var(--surface);
+}
+
+/* header */
+
+.app-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.app-header h1 {
+  font-size: 24px;
+  letter-spacing: 0.04em;
+}
+
+.app-header p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* inline icons */
+
+.icon-inline {
+  width: 16px;
+  height: 16px;
+  image-rendering: pixelated;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* tabs bar */
+
+.tabs {
+  display: flex;
+  margin-bottom: 8px;
+  background: #d9c5a4;
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.tab {
+  flex: 1;
+  padding: 4px 0;
+  margin-right: 4px;
+  border: 2px solid #b0936d;
+  background: #f0ddc3;
+  color: #5a4638;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab:last-child {
+  margin-right: 0;
+}
+
+.tab.active {
+  background: #ffe8c4;
+  border-color: #d98a6b;
+}
+
+.app-main {
+  margin-top: 4px;
+}
+
+/* wallet */
+
+.card h2 {
+  margin-bottom: 8px;
+}
+
+/* month label */
+
+.wallet-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  gap: 6px;
+}
+
+.month-arrow {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0 4px;
+  box-shadow: none;
+}
+
+.month-arrow:hover {
+  color: var(--text);
+}
+
+/* total bar */
+
+.wallet-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  background: rgba(146, 166, 107, 0.18);
+  border: 2px solid var(--accent-green);
+}
+
+.wallet-summary span:first-child {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* form */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+input,
+select {
+  padding: 6px 8px;
+  border: 2px solid var(--muted);
+  background: #f8eddc;
+  color: var(--text);
+}
+
+/* big retro buttons */
+
+button {
+  padding: 6px 8px;
+  border: 3px solid #77462b;
+  background: #ffc75e;
+  color: #4b2b1a;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 3px 0 #b07a36;
+}
+
+button:hover {
+  background: #ffd27e;
+}
+
+/* override for small month arrows and delete buttons is below */
+
+/* clear history button */
+
+#clear-history {
+  margin-top: 8px;
+  width: 100%;
+  background: #f7a7a4;
+  border-color: #8c3b3b;
+  color: #4b1f1f;
+  box-shadow: 0 3px 0 #b05a58;
+}
+
+/* expense list */
+
+#expense-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#expense-list li {
+  background: #f6e5cf;
+  border: 2px solid rgba(146, 166, 107, 0.35);
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
+.expense-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.expense-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.expense-note {
+  font-size: 13px;
+}
+
+.expense-amount {
+  font-size: 13px;
+  color: var(--accent-green-dark);
+}
+
+.category-badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgba(146, 166, 107, 0.25);
+  color: var(--accent-green-dark);
+  white-space: nowrap;
+}
+
+/* tiny delete button */
+
+.expense-delete {
+  border: none;
+  background: transparent;
+  color: #a55a5a;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0 4px;
+  box-shadow: none;
+}
+
+.expense-delete:hover {
+  color: #c86464;
+}
+
+/* category summary cards */
+
+.category-summary {
+  margin-top: 10px;
+  padding: 8px;
+  background: rgba(240, 210, 184, 0.6);
+  border: 2px solid var(--muted);
+  font-size: 12px;
+}
+
+.category-summary-title {
+  text-align: center;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.category-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.category-card {
+  padding: 6px;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 56px;
+  text-transform: lowercase;
+}
+
+.category-card-name {
+  font-weight: 600;
+}
+
+.category-card-amount {
+  font-size: 13px;
+}
+
+/* per-category colors (for pie chart too) */
+
+.category-card.food {
+  background: rgba(217, 138, 107, 0.22); /* peach */
+}
+
+.category-card.rent {
+  background: rgba(185, 162, 146, 0.25); /* neutral */
+}
+
+.category-card.travel {
+  background: rgba(146, 166, 107, 0.25); /* green */
+}
+
+.category-card.other {
+  background: rgba(201, 186, 163, 0.22); /* beige */
+}
+
+/* overview: stats + pie chart */
+
+.wallet-overview {
+  margin-top: 10px;
+  padding: 8px;
+  background: #f0ddc3;
+  border: 2px solid var(--muted);
+  display: flex;
+  gap: 8px;
+}
+
+.overview-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.overview-item {
+  background: #f6e5cf;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.overview-label {
+  color: var(--muted);
+}
+
+.overview-value {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.overview-chart {
+  width: 80px;
+  height: 80px;
+}
+
+#category-pie {
+  width: 100%;
+  height: 100%;
+}
+
+/* groups */
+
+.groups-help {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+#group-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.group-item {
+  background: #f6e5cf;
+  border: 2px solid rgba(146, 166, 107, 0.35);
+  padding: 6px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group-name {
+  font-weight: 600;
+}
+
+.group-meta {
+  font-size: 11px;
+  color: var(--muted);
+}
